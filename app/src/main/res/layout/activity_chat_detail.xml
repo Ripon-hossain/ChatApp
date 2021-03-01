@@ -6,6 +6,73 @@
     android:layout_height="wrap_content"
     tools:context=".ChatDetailActivity">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerViewId"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:layout_above="@+id/bottom_linearLayoutId"
+        />
+    <LinearLayout
+        android:id="@+id/bottom_linearLayoutId"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:weightSum="6"
+        >
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="5"
+            android:background="@drawable/rounded_edge"
+            android:orientation="horizontal"
+            android:weightSum="6">
+
+            <ImageView
+                android:id="@+id/emojiId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:padding="15dp"
+                android:src="@drawable/emoji" />
+
+            <EditText
+                android:id="@+id/textFill"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:ems="10"
+                android:hint="Type a message"
+                android:padding="14dp" />
+
+            <ImageView
+                android:id="@+id/imageSentId"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:clickable="true"
+                android:padding="15dp"
+                android:src="@drawable/camera" />
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/SendId"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:clickable="true"
+            android:padding="15dp"
+            android:src="@drawable/send_icon"
+            android:tint="@color/colorPrimaryDark" />
+    </LinearLayout>
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"

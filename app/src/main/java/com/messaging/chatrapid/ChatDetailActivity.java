@@ -25,6 +25,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityChatDetailBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        getSupportActionBar().hide();
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
@@ -41,7 +42,7 @@ public class ChatDetailActivity extends AppCompatActivity {
         binding.backId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(ChatDetailActivity.this, ChatFragment.class);
+                Intent intent = new Intent(ChatDetailActivity.this, MainActivity.class);
                 startActivity(intent);
             }
         });

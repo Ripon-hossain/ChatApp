@@ -24,8 +24,8 @@ public class FragmentAdapter extends FragmentPagerAdapter {
     @Override
     public Fragment getItem(int position) {
         switch (position){
-            case 0:return new HomeFragment();
-            case 1: return new ChatFragment();
+            case 0:return new ChatFragment();
+            case 1: return new HomeFragment();
             case 2: return  new StatusFragment();
             case 3: return new CallsFragment();
             default: return new ChatFragment();
@@ -44,9 +44,9 @@ public class FragmentAdapter extends FragmentPagerAdapter {
         String title = null;
 
         if(position==0){
-            title="Home";
-        }if(position==1){
             title="Chats";
+        }if(position==1){
+            title="Home";
         }if(position==2){
             title="Status";
         }if(position==3){
