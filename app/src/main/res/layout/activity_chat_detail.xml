@@ -101,7 +101,7 @@
                 android:id="@+id/image_headerId"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginRight="10dp"
                 android:layout_weight="1"
                 android:clickable="true"
                 android:src="@drawable/avater"

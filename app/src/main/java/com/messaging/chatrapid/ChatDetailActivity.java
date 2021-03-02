@@ -1,17 +1,24 @@
 package com.messaging.chatrapid;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.FirebaseDatabase;
+import com.messaging.chatrapid.Adapters.ChatAdapter;
 import com.messaging.chatrapid.Fragments.ChatFragment;
+import com.messaging.chatrapid.Model.MessageModel;
 import com.messaging.chatrapid.databinding.ActivityChatDetailBinding;
 import com.squareup.picasso.Picasso;
+
+import java.util.ArrayList;
+import java.util.Date;
 
 public class ChatDetailActivity extends AppCompatActivity {
 
@@ -29,7 +36,9 @@ public class ChatDetailActivity extends AppCompatActivity {
 
         auth = FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
-        String senderId = auth.getUid();
+
+
+        final String senderId = auth.getUid();
         String recieveId = getIntent().getStringExtra("userId");
         String userName = getIntent().getStringExtra("userName");
         String profilePic = getIntent().getStringExtra("profilePic");
@@ -47,5 +56,39 @@ public class ChatDetailActivity extends AppCompatActivity {
             }
         });
 
+        final ArrayList<MessageModel> messageModels = new ArrayList<>();
+        final ChatAdapter chatAdapter = new ChatAdapter(messageModels, this);
+
+        binding.chatRecyclerViewId.setAdapter(chatAdapter);
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+        binding.chatRecyclerViewId.setLayoutManager(layoutManager);
+
+        final String senderRoom = senderId+recieveId;
+        final String recieverRoom = recieveId+senderId;
+
+        binding.SendId.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String message = binding.textFill.getText().toString();
+                final MessageModel model = new MessageModel(senderId,message);
+
+                model.setMessage(message);
+                model.setTimesTemp(new Date().getTime());
+                binding.textFill.setText("");
+
+                database.getReference().child("chats").child(senderRoom).push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        database.getReference().child("chats").child(recieverRoom).push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {
+                            @Override
+                            public void onSuccess(Void aVoid) {
+
+                            }
+                        });
+                    }
+                });
+
+            }
+        });
     }
 }
