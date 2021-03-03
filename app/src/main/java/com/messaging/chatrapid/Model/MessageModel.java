@@ -11,12 +11,13 @@ public class MessageModel {
         this.timesTemp = timesTemp;
     }
 
+    public MessageModel(){}
+
     public MessageModel(String uId, String message, String profileIcon) {
         this.uId = uId;
         this.message = message;
 //        ProfileIcon = profileIcon;
     }
-
     public MessageModel(String senderId, String message){}
 
     public String getuId() {

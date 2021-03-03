@@ -50,8 +50,9 @@ public class MainActivity extends AppCompatActivity {
             case R.id.search:
 
                 break;
-            case R.id.group:
-
+            case R.id.groupChat:
+                    Intent  groupChat= new Intent(MainActivity.this,GroupChatActivity.class);
+                    startActivity(groupChat);
                 break;
 
             case R.id.invite:

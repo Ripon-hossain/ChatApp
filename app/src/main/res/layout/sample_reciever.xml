@@ -6,6 +6,7 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="7dp"
     android:layout_marginRight="10dp"
+    android:layout_marginTop="8dp"
     android:maxWidth="3000dp"
     android:maxHeight="400dp"
     android:minHeight="60dp"
@@ -27,6 +28,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
+
         android:background="@drawable/bg_reciever_bubble"
         android:maxWidth="200dp"
         android:maxHeight="400dp"
@@ -43,13 +45,15 @@
             android:inputType="textLongMessage|textMultiLine"
             android:maxHeight="270dp"
             android:minWidth="50dp"
-            android:padding="3dp"
+            android:padding="7dp"
+            android:layout_marginLeft="5dp"
             android:text="hello What exactly is the and how we determine the difference between start edge of a view and  edge of a view?"
             android:textColor="#FFFFFF"
             app:layout_constraintBottom_toTopOf="@+id/dateId"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.615"
-            tools:layout_editor_absoluteX="16dp" />
+            tools:layout_editor_absoluteX="16dp"
+            />
 
         <TextView
             android:id="@+id/reciever_time"

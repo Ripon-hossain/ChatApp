@@ -9,8 +9,8 @@
         android:title="Search"
         app:showAsAction="always" />
     <item
-        android:id="@+id/group"
-        android:title="Groups"
+        android:id="@+id/groupChat"
+        android:title="Create Group"
         />
     <item
         android:id="@+id/invite"

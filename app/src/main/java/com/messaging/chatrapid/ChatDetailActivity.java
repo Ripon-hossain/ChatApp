@@ -1,5 +1,6 @@
 package com.messaging.chatrapid;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
@@ -10,7 +11,10 @@ import android.view.View;
 
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.messaging.chatrapid.Adapters.ChatAdapter;
 import com.messaging.chatrapid.Fragments.ChatFragment;
 import com.messaging.chatrapid.Model.MessageModel;
@@ -66,6 +70,25 @@ public class ChatDetailActivity extends AppCompatActivity {
         final String senderRoom = senderId+recieveId;
         final String recieverRoom = recieveId+senderId;
 
+        //get data from firebase
+        database.getReference().child("chats").child(senderRoom).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                messageModels.clear();
+                for(DataSnapshot snapshot1: snapshot.getChildren()){
+                    MessageModel model = snapshot1.getValue(MessageModel.class);
+                    messageModels.add(model);
+                }
+                chatAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+    //send data firebase
         binding.SendId.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,6 +97,7 @@ public class ChatDetailActivity extends AppCompatActivity {
 
                 model.setMessage(message);
                 model.setTimesTemp(new Date().getTime());
+                model.setuId(senderId);
                 binding.textFill.setText("");
 
                 database.getReference().child("chats").child(senderRoom).push().setValue(model).addOnSuccessListener(new OnSuccessListener<Void>() {

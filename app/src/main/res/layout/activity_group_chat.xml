@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    tools:context=".ChatDetailActivity">
+    tools:context=".GroupChatActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/chatRecyclerViewId"
+        android:id="@+id/groupChatRecyclerViewId"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#D5C5C3C3"
@@ -35,7 +35,7 @@
             android:weightSum="6">
 
             <ImageView
-                android:id="@+id/emojiId"
+                android:id="@+id/groupChatEmojiId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -44,7 +44,7 @@
                 android:src="@drawable/emoji" />
 
             <EditText
-                android:id="@+id/textFill"
+                android:id="@+id/groupChatTextFill"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="4"
@@ -53,7 +53,7 @@
                 android:padding="14dp" />
 
             <ImageView
-                android:id="@+id/imageSentId"
+                android:id="@+id/groupChatImageSentId"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -63,7 +63,7 @@
         </LinearLayout>
 
         <ImageView
-            android:id="@+id/SendId"
+            android:id="@+id/groupChatSendId"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
@@ -90,7 +90,7 @@
             >
 
             <ImageView
-                android:id="@+id/backId"
+                android:id="@+id/groupChatBackId"
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_gravity="center"
@@ -99,7 +99,7 @@
                 android:src="@drawable/left_arrow" />
 
             <de.hdodenhof.circleimageview.CircleImageView
-                android:id="@+id/image_headerId"
+                android:id="@+id/groupChatImage_headerId"
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_marginRight="10dp"
@@ -110,17 +110,17 @@
                 app:civ_border_width="2dp" />
 
             <TextView
-                android:id="@+id/userNameHeader_id"
+                android:id="@+id/groupChatUserNameHeader_id"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="5"
                 android:layout_gravity="center"
                 android:textSize="18sp"
                 android:textColor="@color/black"
-                android:text="Ripon Hossain" />
+                android:text="Group Name" />
 
             <ImageView
-                android:id="@+id/call_headerId"
+                android:id="@+id/groupChatCall_headerId"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -131,7 +131,7 @@
                 android:src="@drawable/call_icon" />
 
             <ImageView
-                android:id="@+id/videocall_headerId"
+                android:id="@+id/groupChatVideocall_headerId"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
@@ -141,7 +141,7 @@
                 android:src="@drawable/video_call_icon" />
 
             <ImageView
-                android:id="@+id/menu_headerId"
+                android:id="@+id/groupChatMenu_headerId"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
