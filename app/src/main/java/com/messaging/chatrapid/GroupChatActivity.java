@@ -4,11 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.messaging.chatrapid.databinding.ActivityGroupChatBinding;
+
 public class GroupChatActivity extends AppCompatActivity {
 
+    ActivityGroupChatBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_group_chat);
+        binding = ActivityGroupChatBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 }

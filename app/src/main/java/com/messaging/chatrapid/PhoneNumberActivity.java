@@ -4,12 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.messaging.chatrapid.databinding.ActivityPhoneNumberBinding;
+
 public class PhoneNumberActivity extends AppCompatActivity {
 
+    ActivityPhoneNumberBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_phone_number);
+        binding = ActivityPhoneNumberBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
     }
 }

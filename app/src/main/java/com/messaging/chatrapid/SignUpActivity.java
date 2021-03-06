@@ -107,6 +107,13 @@ public class SignUpActivity extends AppCompatActivity {
                 googleSignin.show();
             }
         });
+        binding.phnSignupLink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(SignUpActivity.this,PhoneNumberActivity.class);
+                startActivity(intent);
+            }
+        });
 
     }
     int RC_SIGN_IN = 65;

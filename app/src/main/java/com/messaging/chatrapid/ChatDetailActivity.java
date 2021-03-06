@@ -1,4 +1,4 @@
-package com.messaging.chatrapid;
+ package com.messaging.chatrapid;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
